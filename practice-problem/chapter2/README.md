@@ -143,3 +143,12 @@ A. x & 0xFF
 B. (x & 0xFF) | ((~x) & 0xFFFFFF00)
 
 C. x | 0xFF
+
+#### Practice Probem 2.13
+
+```
+int bool_or(int x, inty) {
+  int result = bis(x, y);
+  return result;
+}
+```
