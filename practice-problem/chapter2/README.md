@@ -1,4 +1,4 @@
-##### Practice Problem 2.1
+#### Practice Problem 2.1
 
 A. 0x39A7F8 to binary
 
@@ -16,7 +16,7 @@ D. Binary 10 0110 1110 0111 1011 0101 to hexadecimal
 
 0x26E7B5
 
-##### Practice Problem 2.2
+#### Practice Problem 2.2
 
 | n         | $2^n$(Decimal) | $2^n$(Hexadeciaml)    |
 | --------- | -------------- | --------------------- |
@@ -28,7 +28,7 @@ D. Binary 10 0110 1110 0111 1011 0101 to hexadecimal
 | <u>5</u>  | 32             | <u>0x20</u>           |
 | <u>7</u>  | <u>128</u>     | 0x80                  |
 
-##### Practice Problem 2.3
+#### Practice Problem 2.3
 
 | Decimal    | Binary           | hexadecimal |
 | ---------- | ---------------- | ----------- |
@@ -43,7 +43,7 @@ D. Binary 10 0110 1110 0111 1011 0101 to hexadecimal
 | <u>172</u> | <u>1010 1100</u> | 0xAC        |
 | <u>231</u> | <u>1110 0111</u> | 0xE7        |
 
-##### Practice Problem 2.4
+#### Practice Problem 2.4
 
 A. 0x503c + 0x8 = <u>0x5046</u>
 
@@ -53,7 +53,7 @@ C. 0x03c + 64 = <u>0x5042</u>
 
 D. 0x50ea - 0x503c = <u>0x50ae</u>
 
-##### Practice Problem 2.5
+#### Practice Problem 2.5
 
 Little-endian:
 
@@ -70,14 +70,14 @@ B. Little endian:<u>21 43</u>	        Big endian:<u>87 65</u>
 
 C. Little endian:<u>21 43 65</u>	Big endian:<u>87 65 43</u>
 
-##### Practice Problem 2.7
+#### Practice Problem 2.7
 
 ```
 ~ ./pp2_7
  61 62 63 64 65 66
 ```
 
-##### show-bytes.c
+#### show-bytes.c
 
 ```
 ~ ./show_bytes
@@ -85,4 +85,34 @@ C. Little endian:<u>21 43 65</u>	Big endian:<u>87 65 43</u>
  00 e4 40 46
  98 47 ab ac fc 7f 00 00
 ```
+
+#### Practice Problem 2.10
+
+```
+1 void inplace_swap(int *x, int *y) {
+2   *y = *x ^ *y; /* Step 1 */
+3   *x = *x ^ *y; /* Step 2 */
+4   *y = *x ^ *y; /* Step 3 */
+5 }
+```
+##### Steps
+
+| Step      |         *x         |          *y          |
+| :-------- | :----------------: | :------------------: |
+| Initially |         a          |          b           |
+| Step1     |      <u>a</u>      |      <u>a^b</u>      |
+| Step2     | <u>a^(a^b) = b</u> |      <u>a^b</u>      |
+| Step2     | <u>a^(a^b) = b</u> | <u>a^(a^b)^(a^b)</u> |
+
+##### theory
+
+a^b=b^a
+
+a^a=0
+
+a^0=a
+
+^判断是否相同
+
+#### Practice Problem 2.11
 
