@@ -116,3 +116,30 @@ a^0=a
 
 #### Practice Problem 2.11
 
+```
+~ ./pp2_11.bin 
+ 4 3 2 1
+ 5 4 0 2 1
+```
+
+##### modification
+
+delete `=`
+
+```
+void reverse_array(int a[], int cnt) {
+  int first, last;
+  for (first = 0, last = cnt-1;
+      first < last;
+      first++, last--)
+    inplace_swap(&a[first],&a[last]);
+}
+```
+
+#### Practice Problem 2.12
+
+A. x & 0xFF
+
+B. (x & 0xFF) | ((~x) & 0xFFFFFF00)
+
+C. x | 0xFF

@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include "bitfun.h"
 
 #define GET_ARRAY_LEN(array,len) {len = (sizeof(array)/sizeof(array[0]));}
 
 void reverse_array(int a[], int cnt) {
   int first, last;
   for (first = 0, last = cnt-1;
-      first <= last;
+      first < last;
       first++, last--)
     inplace_swap(&a[first],&a[last]);
 }
@@ -15,6 +16,7 @@ int main()
   int a1[] = {1,2,3,4};
   int a2[] = {1,2,3,4,5};
   int len1 = 0,len2 = 0;
+  int i = 0;
 
   GET_ARRAY_LEN(a1,len1);
   GET_ARRAY_LEN(a2,len2);
