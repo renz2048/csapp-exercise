@@ -124,7 +124,7 @@ a^0=a
 
 ##### modification
 
-delete `=`
+change `<=` to `<`
 
 ```
 void reverse_array(int a[], int cnt) {
@@ -144,11 +144,80 @@ B. (x & 0xFF) | ((~x) & 0xFFFFFF00)
 
 C. x | 0xFF
 
-#### Practice Probem 2.13
+#### Practice Problem 2.13
+
+##### analysis
+
+1. bis(bit set)
+
+int bis(int x, int m);
+
+set *z* to 1 at each bit position where *m* is 1
+
+| 运算       | 规则                       |
+| ---------- | -------------------------- |
+| x \| m     | 当m对应bit为1，x对应bit为1 |
+| bis(x,  m) | 当m对应bit为1，x对应bit为1 |
+
+可以看出`bis(x, m) = x | m`
+
+2. bic(bit clear)
+
+int bic(int x, int m);
+
+set *z* to 0 at each bit position where *m* is 1
+
+| 运算      | 规则                       |
+| --------- | -------------------------- |
+| x & m     | 当m对应bit为0，x对应bit为0 |
+| bic(x, m) | 当m对应bit为1，x对应bit为0 |
+
+可以看出`bic(x, m) = x & (~m)`
+
+异或运算：`x ^ y = ((~x) & y) | ( x & (~y))`
+
+##### solution
 
 ```
+/* Compute x|y using only calls to functions bis and bic */
 int bool_or(int x, inty) {
   int result = bis(x, y);
   return result;
 }
 ```
+
+```
+/* Compute x^y using only calls to functions bis and bic */
+int bool_xor(int x, int y) {
+  int result = bis( bic(x, y), bic(y, x));
+  return result;
+}
+```
+
+#### Practice Problem 2.14
+
+x = 0x66 = [0110 0110]
+
+y = 0x39 = [0011 1001]
+
+| Expression | Value              | Expression | Value |
+| ---------- | ------------------ | ---------- | ----- |
+| x & y      | [0010 0000] = 0x20 | x && y     | 0x01  |
+| x \| y     | [0111 1111] = 0x7F | x \|\| y   | 0x01  |
+| ~x \| ~y   | [1101 1111] = 0xDF | !x \|\| !y | 0x00  |
+| x & ! y    | [0000 0000] = 0x00 | x && ~y    | 0x00  |
+
+#### Practice Problem 2.15
+
+`x ^ y ? 1:0;`
+
+#### Practice Problem 2.16
+
+|            x             |               x << 3               |       x >> 2(Logical)        |      x >> 2(Arithmetic)      |
+| :----------------------: | :--------------------------------: | :--------------------------: | :--------------------------: |
+|       Hex  Bianry        |       Binary            Hex        |       Binary      Hex        |       Binary      Hex        |
+|  0xC3  <u>1100 0011</u>  | <u>110 0001 1000</u>  <u>0x618</u> | <u>0011 0000</u> <u>0x30</u> | <u>1111 0000</u> <u>0xf0</u> |
+| 0x75    <u>0111 0101</u> | <u>011 1010 1000</u> <u>0x3a8</u>  | <u>0001 1101</u> <u>0x1d</u> | <u>0001 1101</u> <u>0x1d</u> |
+| 0x87    <u>1000 0111</u> | <u>100 0011 1000</u> <u>0x438</u>  | <u>0010 0001</u> <u>0x21</u> | <u>1110 0001</u> <u>0xe1</u> |
+| 0x66    <u>0110 0110</u> | <u>011 0011 0000</u> <u>0x330</u>  | <u>0001 1001</u> <u>0x19</u> | <u>0001 1001</u> <u>0x19</u> |
+
