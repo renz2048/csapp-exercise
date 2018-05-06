@@ -1,3 +1,5 @@
+#ifndef SHOW_BYTES_H
+#define SHOW_BYTES_H
 #include <stdio.h>
 
 typedef unsigned char *byte_pointer;
@@ -20,3 +22,4 @@ void show_float(float x) {
 void show_pointer(void *x) {
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
+#endif
