@@ -5,7 +5,8 @@ int main(int argc, char **argv)
   unsigned x = 0;
   unsigned y = 0;
 
-  printf("%d %d\n", x, y);
-  uadd_ok(x, y);
+  scanf("%d %d",&x, &y);
+  if(uadd_ok(x, y))
+    return 1;
   return 0;
 }
